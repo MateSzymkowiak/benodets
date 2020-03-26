@@ -5,7 +5,7 @@ const app = new App(
     [
         new PostsController(),
     ],
-    5000,
+    3000,
 );
 
 app.listen();
