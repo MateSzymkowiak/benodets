@@ -38,9 +38,8 @@ class PostsController {
         const post: Post = request.body;
         let connection = mysql.createConnection(this.dbCredentials);
         connection.connect();
-        let sql = 'INSERT INTO Posts (author,title,content) VALUES("${post.author}","${post.title}","${post.content}");';
-        console.log('TEST ${post}');
-        console.log(post.author);
+
+        let sql = `INSERT INTO Posts (author,title,content) VALUES("${post.author}","${post.title}","${post.content}");`;
         connection.query( sql, function (error, results, fields) {
             if (error) {
                 response.status(500).send({error:"DB connection problem"});
